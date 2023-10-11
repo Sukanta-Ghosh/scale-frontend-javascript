@@ -5,31 +5,31 @@ let arr2 = [1, 2, 3, 4, 5, 6];
 
 
 // bad way of giving a feature************
-// arr.sum = function () {
-//     let sum = 0;
-//     for (let i = 0; i < this.length; i++) {
-//         sum = sum + this[i];
-//     }
-//     console.log(sum);
-// }
+arr.sum = function () {
+    let sum = 0;
+    for (let i = 0; i < this.length; i++) {
+        sum = sum + this[i];
+    }
+    console.log(sum);
+}
 
 
 
-// arr2.sum = function () {
-//     let sum = 0;
-//     for (let i = 0; i < this.length; i++) {
-//         sum = sum + this[i];
-//     }
-//     console.log(sum);
-// }
+arr2.sum = function () {
+    let sum = 0;
+    for (let i = 0; i < this.length; i++) {
+        sum = sum + this[i];
+    }
+    console.log(sum);
+}
 
-// arr2.sum();
-// arr.sum();
+arr2.sum();
+arr.sum();
 
-// console.log(typeof arr);
+console.log(typeof arr);
 
-// arr.push("hello")
-// console.log(arr);
+arr.push("hello")
+console.log(arr);
 
 
 

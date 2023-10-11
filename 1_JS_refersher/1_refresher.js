@@ -161,15 +161,15 @@ var person = {
 
 var arr1 = [1,2,3,4];
 
-// arr1[0];
-// arr1[1];
+arr1[0];
+arr1[1];
 
 
 
 
 // correct way to check whether you are recieving array or object
-// var arr = [1, 2, 3, 4];
-// console.log(Array.isArray(arr));
+var arr = [1, 2, 3, 4];
+console.log(Array.isArray(arr));
 
 
 

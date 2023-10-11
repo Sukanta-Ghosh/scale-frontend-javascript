@@ -14,24 +14,18 @@ const child = {
 }
 
 
-//parent.addHealth(10,20);
-//console.log(parent);
-//parent.addHealth.call(child,20,30); // params separated by commas
-//parent.addHealth.apply(child,[20,30]);// array as 2nd param
-//console.log(child);
+parent.addHealth(10,20);
+console.log(parent);
+parent.addHealth.call(child,20,30); // params separated by commas
+parent.addHealth.apply(child,[20,30]);// array as 2nd param
+console.log(child);
 
 
-// const logthis = () => {console.log(this)}
-// const myobj = {
-//     name: 'vishal'
-// }
-// logthis.call(myobj);
-
-
-
-
-
-
+const logthis = () => {console.log(this)}
+const myobj = {
+    name: 'vishal'
+}
+logthis.call(myobj);
 
 
 
@@ -54,14 +48,14 @@ let ironMan = {
     team: "Iron Man"
 }
 
-//cap.petersTeam("black panther", "Winter soldier");
+cap.petersTeam("black panther", "Winter soldier");
 
 // borrow a fn from another obj another object 
 // used to call it 
-//cap.petersTeam.call(ironMan,"Natsha","WarMachine");
+cap.petersTeam.call(ironMan,"Natsha","WarMachine");
 
 // apply -> borrow for n number of paramters
-// cap.petersTeam.apply(ironMan, ["Natsha", "WarMachine", "doctor strange", "loki", "thor"]);
+cap.petersTeam.apply(ironMan, ["Natsha", "WarMachine", "doctor strange", "loki", "thor"]);
 
 
 
@@ -69,12 +63,10 @@ let ironMan = {
 
 // bind -> copies function that you can call later with the same this
 
-// const importantfn = cap.petersTeam;
-// importantfn();
+const importantfn = cap.petersTeam;
+importantfn();
 
-//let ironManStolenMem = cap.petersTeam.bind(ironMan);
-
-
+let ironManStolenMem = cap.petersTeam.bind(ironMan);
 
 
 
@@ -85,9 +77,11 @@ let ironMan = {
 
 
 
-// ironManStolenMem("Natsha", "WarMachine", "doctor strange");
-// console.log('-------------------------')
-// ironManStolenMem("loki", "thor")
+
+
+ironManStolenMem("Natsha", "WarMachine", "doctor strange");
+console.log('-------------------------')
+ironManStolenMem("loki", "thor")
 
 
 
@@ -110,9 +104,9 @@ const obj = {
 }
 
 // normal bind
-//intro.call(obj,"lucknow", "uttar pradesh", "india",'earth');
-//const giveIntro = intro.bind(obj,"lucknow", "uttar pradesh");
-//giveIntro();
+intro.call(obj,"lucknow", "uttar pradesh", "india",'earth');
+const giveIntro = intro.bind(obj,"lucknow", "uttar pradesh");
+giveIntro();
 
 
 
@@ -122,42 +116,28 @@ function sayHi(age) {
     return `${this.name} is ${age} years old`;
 }
 
-//console.log(sayHi.call(person, 24));
-//let fn = sayHi.bind(person, 24);
-//console.log(typeof fn);
-//console.log(fn());
-// console.log(sayHi.bind(person, 24)());
+console.log(sayHi.call(person, 24));
+let fn = sayHi.bind(person, 24);
+console.log(typeof fn);
+console.log(fn());
+console.log(sayHi.bind(person, 24)());
 
 
+var status = "online";
+ setTimeout(()=>{
 
+    const status = 'offline';
 
-
-
-
-
-
-
-
-
-
-
-
-
-// var status = "online";
-//  setTimeout(()=>{
-
-//     const status = 'offline';
-
-//     const data = {
-//         status : 'working',
-//         getStatus() {
-//             return this.status
-//         }
-//     };
-//     console.log(this);
-//     console.log(data.getStatus()); //
-//     console.log(data.getStatus.call(this)); //
-//  },1000); 
+    const data = {
+        status : 'working',
+        getStatus() {
+            return this.status
+        }
+    };
+    console.log(this);
+    console.log(data.getStatus()); 
+    console.log(data.getStatus.call(this)); 
+ },1000); 
 
 
 

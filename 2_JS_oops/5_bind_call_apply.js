@@ -14,11 +14,11 @@ parent.addHealth(10,20);
 parent.addHealth.call(child,20,30);
 parent.addHealth.apply(child,[20,30]);
 
-// const logthis = () => {console.log(this)}
-// const myobj = {
-//     name: 'vishal'
-// }
-// logthis.call(myobj);
+const logthis = () => {console.log(this)}
+const myobj = {
+    name: 'vishal'
+}
+logthis.call(myobj);
 
 
 let cap = {
@@ -34,14 +34,14 @@ let ironMan = {
     team: "Iron Man"
 }
 
-// cap.petersTeam("black panther", "Winter soldier");
+cap.petersTeam("black panther", "Winter soldier");
 
 // borrow a fn from another obj another object 
 // used to call it 
 cap.petersTeam.call(ironMan,"Natsha","WarMachine");
 
 // apply -> borrow for n number of paramters
-// cap.petersTeam.apply(ironMan, ["Natsha", "WarMachine", "doctor strange", "loki", "thor"]);
+cap.petersTeam.apply(ironMan, ["Natsha", "WarMachine", "doctor strange", "loki", "thor"]);
 
 // bind -> copies function that you can call later with the same this
 let ironManStolenMem = cap.petersTeam.bind(ironMan);

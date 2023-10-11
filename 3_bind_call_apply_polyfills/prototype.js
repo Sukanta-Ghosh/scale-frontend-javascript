@@ -1,19 +1,19 @@
-// function Person(name, age) {    
-//     this.name = name;
-//     this.age = age;
-//     this.giveIntro = function() {
-//         console.log(`my name is ${this.name} and age is ${this.age}`)
-//     }
-// }
+function Person(name, age) {    
+    this.name = name;
+    this.age = age;
+    this.giveIntro = function() {
+        console.log(`my name is ${this.name} and age is ${this.age}`)
+    }
+}
 
-// const person1 = new Person("Avinash",20);
-// console.log(person1);
-// const person2 = new Person("rahul",20);
-// console.log(person2);
-// const person3 = new Person("shweta",20);
-// const person4 = new Person("varun",20);
-// const person5 = new Person("vivek",20);
-// const person6 = new Person("varsh",20);
+const person1 = new Person("Avinash",20);
+console.log(person1);
+const person2 = new Person("rahul",20);
+console.log(person2);
+const person3 = new Person("shweta",20);
+const person4 = new Person("varun",20);
+const person5 = new Person("vivek",20);
+const person6 = new Person("varsh",20);
 
 
 
@@ -69,15 +69,6 @@ arr2.sort();
 
 
 // first js will try to find in same object, then it will find in the 1 level up, which is its prototype.
-
-
-
-
-
-
-
-
-
 function Person(name, age) {
     this.name = name;
     this.age = age;
@@ -95,18 +86,18 @@ Person.prototype.giveIntro = function() {
 
 
 const per1 = new Person("Avinash",20);
-// const per2 = new Person("rahul",20);
+const per2 = new Person("rahul",20);
 console.log(per1.prototype());
 // console.log(per2)
 // console.log(per3)
 // console.log(per4)
 
 
-// per1.giveIntro();
-// per1.toString();
-// per2.giveIntro();
-// per3.giveIntro();
-// per4.giveIntro();
+per1.giveIntro();
+per1.toString();
+per2.giveIntro();
+per3.giveIntro();
+per4.giveIntro();
 
 
 
@@ -155,14 +146,14 @@ const obj3 = {
 
 
 
-// Array.prototype.hello = function() {
-//     console.log('hi');
-// }
+Array.prototype.hello = function() {
+    console.log('hi');
+}
 
-// var emptyArr = [];
-// console.log(emptyArr);
-// var arr45 = [1,2,3,4,5];
+var emptyArr = [];
+console.log(emptyArr);
+var arr45 = [1,2,3,4,5];
 
-// emptyArr.hello();
-// arr45.hello();
+emptyArr.hello();
+arr45.hello();
 

@@ -7,7 +7,7 @@ let input2 = [1, 2, 3, [4, 5], [[6], 7, 8, [9, 10, [11]]]];
 
 // [4, 5] -> [4,5]
 // [6, 7, 8, [9, 10, 11]] -> [6, 7, 8, 9, 10, 11]
-                 // [1,2,3,4]
+// [1,2,3,4]
 function flatten(srcArr) {
     // complete this fn
     let newArr = [];
@@ -39,9 +39,8 @@ console.log(flattenedArr2);
 /**
  * Question  -> Array.protype.flat()  -> flatten fn -> option of levels also
  * */
-
-// let flattenOutput = input.flat();
-// console.log(flattenOutput);
+let flattenOutput = input.flat();
+console.log(flattenOutput);
 
 
 
@@ -52,8 +51,6 @@ console.log(flattenedArr2);
  * Array.prototype.flat() HW
  * flatten an object 
  * */
-
-
 let person = {
     firstName: 'John',
     lastName: 'Doe',

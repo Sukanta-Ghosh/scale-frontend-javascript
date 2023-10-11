@@ -19,39 +19,39 @@ console.log("line number 16", a);
 
 // ******************var************
 // reassign
-// var a=10
-// a=20;
-// redeclared -> yes 
-// var a=30;
+var a=10
+a=20;
+//redeclared -> yes 
+var a=30;
 
-// udef
-// console.log(a);
+//udef
+console.log(a);
 
-// var a=10;
-// 10
-// console.log(a);
+var a=10;
+10
+console.log(a);
 
 
-// **********let*************
+//**********let*************
 // reassign -> yes
 // redeclaration -> X
-// let a=10;
-// a=20;
-// let a;
+let a=10;
+a=20;
+let a;
 
-// let Hoisting -> undefined
+//let Hoisting -> undefined
 // before declaration let and const variables cannot be accessed ->
 //  temporal dead zone
 
 //  let -> script scope
-// console.log(a);
-// let a;
-// console.log(a);
-// a=10;
-// console.log(a);
+console.log(a);
+let a;
+console.log(a);
+a=10;
+console.log(a);
 
 
-// block -> {}
+//block -> {}
 
 
 

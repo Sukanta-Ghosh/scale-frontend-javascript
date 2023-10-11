@@ -1,43 +1,43 @@
-// const parent = {
-//     health : 50,
-//     addHealth(n1,n2) {
-//         // console.log(this);
-//         this.health += n1 + n2;
-//     },
-//     getHealth() {
-//         console.log(this.health);
-//     }
-// }
-// // polyfills
+const parent = {
+    health : 50,
+    addHealth(n1,n2) {
+        console.log(this);
+        this.health += n1 + n2;
+    },
+    getHealth() {
+        console.log(this.health);
+    }
+}
+// polyfills
 
-// // method borrowing
-// const child = {
-//     health : 70
-// }
+// method borrowing
+const child = {
+    health : 70
+}
 
-//parent.addHealth(10,20);
-//parent.addHealth.call(child,20,30);
-// parent.addHealth.apply(child,[20,30]);
+parent.addHealth(10,20);
+parent.addHealth.call(child,20,30);
+parent.addHealth.apply(child,[20,30]);
 
-// where is this call, apply , bind existing ??
-// console.log(Object.prototype);
-// console.log(Array.prototype);
-// console.dir(Function.prototype);
-
-
-// function add(){
-
-// }
+//where is this call, apply , bind existing ??
+console.log(Object.prototype);
+console.log(Array.prototype);
+console.dir(Function.prototype);
 
 
-// Function.prototype.sayHi = () => {
-//     console.log('hello');
-// }
+function add(){
 
-// add.sayHi();
-//console.dir(Function.prototype);
+}
 
-// parent.addHealth.sayHi();
+
+Function.prototype.sayHi = () => {
+    console.log('hello');
+}
+
+add.sayHi();
+console.dir(Function.prototype);
+
+parent.addHealth.sayHi();
 
 
 const parent = {
@@ -61,8 +61,8 @@ Function.prototype.myCall = function(requiredObj, ...args){
 
     console.log(args, "arguments");
     const requiredfn = this;
-    // child.getHealth = function() {
-   // }
+    child.getHealth = function() {
+   }
     requiredObj.requiredfn = requiredfn;
     // child.getHealth()
     requiredObj.requiredfn(...args);
@@ -70,10 +70,10 @@ Function.prototype.myCall = function(requiredObj, ...args){
     //console.log(this, "mycall this");
 }
 
-// parent.getHealth();
-// parent.getHealth.myCall(child);
-// parent.addHealth.myCall(child,20,30);
-// console.log(child)
+parent.getHealth();
+parent.getHealth.myCall(child);
+parent.addHealth.myCall(child,20,30);
+console.log(child)
 
 
 
@@ -96,11 +96,6 @@ parent.addHealth.myApply(child,[20,30]);
 // console.log(child);
 
 
-
-
-
-
-
 //  bind polyfill
 
 Function.prototype.myBind = function(requiredObj, ...args1){
@@ -116,8 +111,8 @@ Function.prototype.myBind = function(requiredObj, ...args1){
 
 const myfn = parent.addHealth.myBind(child,20)
 myfn(30);
-// console.log(myfn, "myfn")
-// console.log(child)
+console.log(myfn, "myfn")
+console.log(child)
 
 /***
  * 1. bind , call and apply -> are available on function
@@ -133,22 +128,22 @@ myfn(30);
 // Hello, John! from India
 // create applypollyfill
 
-// function applyPolyfill(fn, obj, args) {
+function applyPolyfill(fn, obj, args) {
 
-//     obj.fn = fn;
-//     const answer = obj.fn(...args);
-//     delete obj.fn;
-//     return answer;
-// }
+    obj.fn = fn;
+    const answer = obj.fn(...args);
+    delete obj.fn;
+    return answer;
+}
 
-// function greet(country) { 
-//     return 'Hello, ' + this.name + ' from '+ country;
-// } 
+function greet(country) { 
+    return 'Hello, ' + this.name + ' from '+ country;
+} 
 
-// const person = {
-//     name: 'John',
-// }; 
+const person = {
+    name: 'John',
+}; 
 
-// console.log(applyPolyfill(greet, person, ['India']));
+console.log(applyPolyfill(greet, person, ['India']));
 
 

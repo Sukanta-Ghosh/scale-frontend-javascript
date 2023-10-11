@@ -37,10 +37,10 @@ let cap = {
 // //  JSON-> Javascript object Notation 
 // // **********get******************
 // // .operator
-// console.log("name is ", cap.name);
+console.log("name is ", cap.name);
 
 
-// cap.sayHi();
+cap.sayHi();
 
 
 var cap1 = {
