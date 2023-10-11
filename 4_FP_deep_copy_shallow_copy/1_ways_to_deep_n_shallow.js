@@ -3,9 +3,9 @@
 // Deep copy: means that all levels of the object are copied. This is a true copy of the object.
 
 
-// let arr1 = [1,2,3,4,[3,4,5],5];
-// arr2 = [...arr1];
-// this is a shallow copy
+let arr1 = [1,2,3,4,[3,4,5],5];
+arr2 = [...arr1];
+//this is a shallow copy
 
 
 /*****
@@ -19,34 +19,34 @@
 
 /**spread*/
 
-// let arr = [1, 2, 3, 4, [10, 12], 5, 6];
-// let spreadArray = [...arr];
-// spreadArray[2] = 100;
-// // spreadArray[4] = 200;
-// spreadArray[4][1] = 300;
-// console.log("outputs ", spreadArray, arr);
+let arr = [1, 2, 3, 4, [10, 12], 5, 6];
+let spreadArray = [...arr];
+spreadArray[2] = 100;
+spreadArray[4] = 200;
+spreadArray[4][1] = 300;
+console.log("outputs ", spreadArray, arr);
 
 
 /**Object.assign**/
 
-// let person = {
-//     firstName: 'John',
-//     lastName: 'Doe',
-//     address: {
-//         street: 'North 1st street',
-//         city: 'San Jose',
-//         state: 'CA',
-//         country: 'USA'
-//     },
-// };
+let person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    address: {
+        street: 'North 1st street',
+        city: 'San Jose',
+        state: 'CA',
+        country: 'USA'
+    },
+};
 
 
-// let copiedObject = Object.assign({}, person);
-// copiedObject.lastName = "Odinson";
-// copiedObject.address.street = "south 1st street";
-// console.log("person", person);
-// console.log("copiedObject", copiedObject);
-//let copiedObject = { ...person };
+let copiedObject = Object.assign({}, person);
+copiedObject.lastName = "Odinson";
+copiedObject.address.street = "south 1st street";
+console.log("person", person);
+console.log("copiedObject", copiedObject);
+let copiedObject = { ...person };
 
 
 /**
@@ -54,35 +54,36 @@
  *
  * */
 
-// let person = {
-//     firstName: 'John',
-//     lastName: 'Doe',
-//     address: {
-//         street: 'North 1st street',
-//         city: 'San Jose',
-//         state: 'CA',
-//         country: 'USA'
-//     },
-// };
+let person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    address: {
+        street: 'North 1st street',
+        city: 'San Jose',
+        state: 'CA',
+        country: 'USA'
+    },
+};
+
 // convert obj to string 
-// let stringSyntaxOfobject = JSON.stringify(person);
-// console.log(typeof stringSyntaxOfobject,stringSyntaxOfobject)
-// /**deep copy -> object like string*/
-// let deepClonedObj = JSON.parse(stringSyntaxOfobject);
+let stringSyntaxOfobject = JSON.stringify(person);
+console.log(typeof stringSyntaxOfobject,stringSyntaxOfobject)
+/**deep copy -> object like string*/
+let deepClonedObj = JSON.parse(stringSyntaxOfobject);
 
 
-// deepClonedObj.lastName = "Odinson";
-// deepClonedObj.address.street = "south 1st street";
-// console.log("person", person);
-// console.log("copiedObject", deepClonedObj);
+deepClonedObj.lastName = "Odinson";
+deepClonedObj.address.street = "south 1st street";
+console.log("person", person);
+console.log("copiedObject", deepClonedObj);
 
 
-// let arr = [1, 2, 3, 4, [10, 12], 5, 6];
-// let stringArr = JSON.stringify(arr);
-// const deepArr = JSON.parse(stringArr);
-// deepArr[2] = 100;
-// deepArr[4][1] = 300;
-// console.log("outputs ", deepArr, arr);
+let arr = [1, 2, 3, 4, [10, 12], 5, 6];
+let stringArr = JSON.stringify(arr);
+const deepArr = JSON.parse(stringArr);
+deepArr[2] = 100;
+deepArr[4][1] = 300;
+console.log("outputs ", deepArr, arr);
 
 
 //  JSON.stringify -> deep copy
