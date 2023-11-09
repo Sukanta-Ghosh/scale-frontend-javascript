@@ -143,3 +143,30 @@ console.log(c.foo); //1
 c.foo = 2;
 console.log(c.foo); //1
 console.log(b.foo); //1
+
+/* Ex: Doubt:*/
+function* f(...a) {
+  let s = new Set();
+  for (x in a) {
+    s.add(a[x]);
+    yield a[x];
+  }
+  yield s;
+}
+
+let f1 = f(3, 2, 1);
+
+while (true) {
+  let yv = f1.next().value;
+  if (typeof yv == "object") {
+    console.log(yv);
+    yv.add(3);
+    console.log(yv);
+    break;
+  }
+}
+
+/* o/p:
+Set(3) { 3, 2, 1 }
+Set(3) { 3, 2, 1 }
+*/
