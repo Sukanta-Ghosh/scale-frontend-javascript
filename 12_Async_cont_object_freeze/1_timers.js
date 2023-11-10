@@ -35,4 +35,4 @@ console.time();
 setTimeout(cancelInterval, 5000);
 console.log("after");
 
-//settimeout - /// after the given time it will run, it can be more than the time given
+//settimeout - after the given time it will run, it can be more than the time given
