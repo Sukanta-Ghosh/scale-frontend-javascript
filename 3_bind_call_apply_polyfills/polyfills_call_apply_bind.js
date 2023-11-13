@@ -8,7 +8,6 @@ let parent = {
     console.log(this.health);
   },
 };
-// polyfills
 
 // method borrowing
 var child = {
@@ -46,7 +45,7 @@ parent = {
     console.log(this.health);
   },
 };
-// polyfills
+
 // method borrowing
 const child = { health: 70 };
 

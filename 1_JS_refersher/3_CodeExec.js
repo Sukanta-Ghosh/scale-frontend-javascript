@@ -3,17 +3,17 @@
 
 var a = 10;
 function fn() {
-    console.log("I am fn");
-    function inner() {
-        console.log("I am inner");
-    }
-    inner();
+  console.log("I am fn");
+  function inner() {
+    console.log("I am inner");
+  }
+  inner();
 }
-fn()
+fn();
 
 sayHi();
-function sayHi(){
-    console.log("hi everyone")
+function sayHi() {
+  console.log("hi everyone");
 }
 
 console.log(x);
@@ -38,25 +38,26 @@ code execution
         line by line interpreted execution 
 */
 
+var a = 10;
+console.log("a", a);
 
-var a=10;
-console.log("a",a);
+console.log("a", a);
+var a = 10;
 
-
-console.log("a",a);
-var a=10;
-
-
-console.log(x)
+console.log(x);
 var x = 5;
-function add(a,b)
-{
-    console.log(a,b);
+function add(a, b) {
+  console.log(a, b);
 }
-add(1,2)
-
+add(1, 2);
 
 real();
-function real() { console.log("I am real. Always run me"); }
-function real() { console.log("No I am real one "); }
-function real() { console.log("You both are wasted"); }
+function real() {
+  console.log("I am real. Always run me");
+}
+function real() {
+  console.log("No I am real one ");
+}
+function real() {
+  console.log("You both are wasted");
+}

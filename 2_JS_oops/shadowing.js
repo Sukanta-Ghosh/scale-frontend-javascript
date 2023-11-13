@@ -4,9 +4,9 @@
 
 // let and var
 let a = 100;
-if(true){
-    let a = 10;
-    console.log(a);
+if (true) {
+  let a = 10;
+  console.log(a);
 }
 
 console.log(a);
