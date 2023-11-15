@@ -39,8 +39,7 @@ console.log(a);
 // let a;
 
 //let Hoisting -> undefined
-// before declaration let and const variables cannot be accessed ->
-//  temporal dead zone
+// before declaration let and const variables cannot be accessed -> temporal dead zone
 
 //  let -> script scope
 console.log(a);

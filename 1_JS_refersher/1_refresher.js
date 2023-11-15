@@ -1,6 +1,6 @@
 console.log("hello!!!!!");
 
-// JS statistically/dynamically ?
+// JS statistically/dynamically typed?
 
 // JS is a dynamic typed language and type is defined during runtime.
 var a = 5;

@@ -2,21 +2,24 @@
 // anything in global scope will point to window object
 //console.log(this);
 
+//Scenario 1
 var person = {
   name: "vishal",
 };
 
-console.log(person);
-console.log(window.person);
-console.log(this.person);
+console.log(person);  //{name: 'vishal'}
+console.log(window.person); //{name: 'vishal'}
+console.log(this.person); //{name: 'vishal'}
 
+//Scenario 2
 function sayHi() {
   console.log(this);
 }
-sayHi();
-window.sayHi();
-this.sayHi();
+sayHi();  //window object
+window.sayHi(); //window object
+this.sayHi(); //window object
 
+//Scenario 3
 var person = {
   name: "vishal",
   age: 29,
@@ -24,7 +27,7 @@ var person = {
     console.log(this);
   },
 };
-console.log(person.sayHi());
+console.log(person.sayHi());//{name: 'vishal', age: 29, sayHi: f}
 
 //breakpoint
 var person = {

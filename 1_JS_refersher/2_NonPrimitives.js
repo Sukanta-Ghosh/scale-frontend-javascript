@@ -7,7 +7,7 @@ function fn(param1) {
 }
 
 console.log(fn(1));
-// // fn call
+// fn call
 let fn2 = fn();
 
 console.log(typeof fn);
@@ -29,12 +29,12 @@ let cap = {
   sayHi: function () {
     console.log("Cap say's HI");
   },
-  movies: ["Avenger", "civile War"],
+  movies: ["Avenger", "civil War"],
 };
 
-// //  JSON-> Javascript object Notation
-// // **********get******************
-// // .operator
+//  JSON-> Javascript object Notation
+// **********get******************
+// .operator
 console.log("name is ", cap.name);
 
 cap.sayHi();

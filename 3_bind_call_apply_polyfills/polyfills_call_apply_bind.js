@@ -85,8 +85,6 @@ parent.addHealth.myApply(child, [20, 30]);
 Function.prototype.myBind = function (requiredObj, ...args1) {
   const requiredfn = this;
   return function (...args2) {
-    // console.log(args1,args2, "arguments of myapply");
-
     requiredfn.call(requiredObj, ...args1, ...args2); //requiredfn.apply(requiredObj,[...args1,...args2]);
   };
 };

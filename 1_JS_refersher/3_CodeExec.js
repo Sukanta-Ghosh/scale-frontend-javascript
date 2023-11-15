@@ -11,15 +11,17 @@ function fn() {
 }
 fn();
 
+//Reference Error: sayHi is not a function
 sayHi();
 function sayHi() {
   console.log("hi everyone");
 }
 
+// x is undefined
 console.log(x);
 var x = 100;
 
-/* Code Excution : always exec in EC
+/* Code Excution : always execute in EC(Execution Context)
     GLobal execution context -> GEC
     inside fn [ functional execution context ] -> own FEC
 
