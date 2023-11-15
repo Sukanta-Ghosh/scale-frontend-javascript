@@ -1,4 +1,4 @@
-/* QS 1 */
+/* Ex: QS 1 */
 console.log(1);
 setTimeout(function () {
   console.log(3);
@@ -16,7 +16,7 @@ console.log(6);
 1 4 6 5 3 2
 */
 
-/* QS 2 */
+/* Ex: QS 2 */
 Promise.resolve(1)
   .finally((data) => {
     console.log(data);
@@ -37,7 +37,7 @@ Promise.resolve(1)
 undefined error undefined 2 error2
 */
 
-/* QS 3 */
+/* Ex: QS 3 */
 let p = new Promise(function (resolve, reject) {
   setTimeout(function () {
     reject(new Error("some value"));
@@ -103,7 +103,7 @@ inside then 2
 some error
 */
 
-/* QS 4 */
+/* Ex: QS 4 */
 const promise1 = Promise.resolve(1);
 const promise2 = Promise.resolve(2);
 const promise3 = Promise.resolve(3);
@@ -130,7 +130,7 @@ Inside catch
 4
 */
 
-/* QS 5 */
+/* Ex: QS 5 */
 setTimeout(() => console.log("timeout"), 0);
 
 Promise.resolve().then(() => console.log("promise"));
@@ -139,7 +139,7 @@ Promise.resolve().then(() => console.log("promise"));
 promise timeout
 */
 
-/* Doubt:QS 6 */
+/* Ex: QS 6 Doubt: */
 const firstPromise = new Promise((res, rej) => {
   setTimeout(res, 500, "one");
 });
@@ -153,7 +153,7 @@ Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 two
 */
 
-/* QS 7 */
+/* Ex: QS 7 */
 const createPromise = () => Promise.resolve(1);
 
 function func1() {
@@ -177,7 +177,7 @@ func2();
 3
 */
 
-/* Doubt:QS */
+/* Doubt: Ex: QS 8 */
 function resolveAfterNSeconds(n, x) {
   return new Promise((resolve) => {
     setTimeout(() => {

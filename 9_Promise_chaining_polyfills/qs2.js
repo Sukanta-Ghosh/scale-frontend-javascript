@@ -1,4 +1,4 @@
-//Qs
+//Ex: Qs
 Promise.reject(1)
   .catch((err) => {
     console.log("3", err);
@@ -23,7 +23,7 @@ Promise.reject(1)
  *
  * **/
 
-//Qs
+//Ex: Qs
 Promise.reject(1)
   .finally((data) => {
     console.log("3", data);
@@ -45,7 +45,7 @@ error
 15 undefined
 */
 
-//Qs
+//Ex: Qs
 Promise.resolve(1)
   .finally((data) => {
     console.log("3", data);

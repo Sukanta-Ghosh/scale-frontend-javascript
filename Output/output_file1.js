@@ -1,4 +1,37 @@
+/* Doubt: Ex: */
+function foo() {
+  let a = (b = 0);
+  a++;
+  return a;
+}
+foo();
+
+console.log(typeof a);
+console.log(typeof b);
+
+/* o/p:
+undefined
+number
+*/
+
 /* Ex: */
+let ab = 10;
+console.log("line number 2", ab); //10
+
+function fn() {
+  console.log("line number 4", ab); //ReferenceError: Cannot access 'ab' before initialization
+  let ab = 20;
+  ab++;
+  console.log("line number 7", ab); //
+  if (ab) {
+    let ab = 30;
+    ab++;
+    console.log("line number 11", ab); //
+  }
+  console.log("line number 13", ab); //
+}
+fn();
+console.log("line number 16", ab); //
 
 /* Ex: */
 let a = 2;
@@ -90,7 +123,10 @@ class Rabbit extends Animal {
 let rabbit1 = new Rabbit("White Rabbit");
 console.log(rabbit1.name);
 
-/* O/P: Error */
+/* O/P: 
+ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+at new Rabbit
+*/
 
 /* Ex: */
 let animal = {
@@ -171,4 +207,50 @@ while (true) {
 /* o/p:
 Set(3) { 3, 2, 1 }
 Set(3) { 3, 2, 1 }
+*/
+
+/* Ex: */
+let b;
+console.log(b); //undefined
+
+function A() {
+  let b = 2;
+  console.log(b); //2
+
+  function C() {
+    console.log(b); //2
+
+    function D() {
+      console.log(b); //2
+
+      b = 2;
+    }
+    D();
+    b = 3;
+  }
+  C();
+}
+
+b = 3;
+A();
+
+/* o/P;
+undefined 2 2 2
+*/
+
+/* Ex: */
+let cap = {
+  name: "Steve",
+  sayHi: () => {
+    console.log("Hi from ", this.name);
+  },
+};
+
+cap.sayHi();
+let sayHiAdd = cap.sayHi;
+sayHiAdd();
+
+/* O/p:
+Hi from  undefined
+Hi from  undefined
 */

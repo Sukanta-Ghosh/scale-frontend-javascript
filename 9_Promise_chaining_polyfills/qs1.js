@@ -16,7 +16,7 @@ let p = new Promise(function (resolve, reject) {
 
 // promises resolved/rejected once in lifetime
 
-/****************** Q1 ********************/
+/****************** Ex: Q1 ********************/
 p.then(null, function (err) {
   console.log(1);
   console.log(err);
@@ -50,7 +50,7 @@ p.then(
   44 some value
   */
 
-/****************** Q2 ********************/
+/****************** Ex: Q2 ********************/
 /**
  * finally does not take any argumenst -> forwards the argument received
  * finally don't return anything
@@ -79,7 +79,7 @@ p.finally(function () {
 39 some value
 */
 
-/****************** Q3 ********************/
+/****************** Ex: Q3 ********************/
 Promise.resolve(1)
   .then(() => 2)
   .then((data) => {

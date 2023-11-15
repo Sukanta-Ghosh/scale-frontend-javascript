@@ -2,14 +2,13 @@
 function outer() {
   let arrFn = [];
   for (var i = 0; i < 3; i++) {
-    // console.log(i);
     arrFn.push(function fn() {
       console.log(i);
     });
   }
-  //console.log(i);
   return arrFn;
 }
+
 var arrFn = outer();
 console.log(arrFn);
 arrFn[0]();
@@ -17,9 +16,7 @@ arrFn[1]();
 arrFn[2]();
 
 /* o/p:
-3
-3
-3 
+3 3 3 
 */
 
 //q-1-2
@@ -45,9 +42,7 @@ arrFn[1]();
 arrFn[2]();
 
 /* o/p:
-3
-3
-3 
+3 3 3 
 */
 
 /**
