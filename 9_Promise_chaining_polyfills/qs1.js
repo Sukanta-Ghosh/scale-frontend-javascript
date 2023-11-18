@@ -4,11 +4,15 @@ let p = new Promise(function (resolve, reject) {
   setTimeout(function () {
     reject(new Error("some error"));
   }, 2000);
+
   resolve("some value");
+
   setTimeout(function () {
     reject(new Error("some error"));
   }, 2000);
+
   resolve("some value");
+
   setTimeout(function () {
     reject(new Error("some error"));
   }, 2000);
@@ -59,7 +63,7 @@ p.then(
 p.finally(function () {
   console.log("37", 2);
   // throw new Error("Hello");
-  return Promise.resolve("some resolve value");
+  return Promise.resolve("some finally resolve value");
   // return Promise.reject(45);
 })
   .finally(function () {

@@ -1,16 +1,47 @@
+/* The purpose of this function is to create a trap that prevents access 
+to private data of an object. */
+
 function makeTrap(userObj) {
+  /* Declare a variable named handler and assign it an object with a get method. 
+  This method will be used to intercept property access. */
   let handler = {
+    /* In the get method, define three parameters: target, prop, and receiver. 
+    These parameters represent the target object, the accessed property, and the proxy object, respectively. */
     get: function (target, prop, receiver) {
+      /* check if the accessed property is equal to "private" */
       if (prop === "private") {
         return "Access not granted";
-      } else {
+      }
+      // If the property is not "private", allow access to the property using the Reflect.get(...arguments) method.
+      //This method retrieves the property value from the original object.
+      else {
         return Reflect.get(...arguments);
       }
     },
   };
 
+  /* Outside the handler object, return a new Proxy object. Pass the userObj as the target and the handler object as the handler 
+  argument. This creates a proxy that wraps the userObj and applies the defined behavior. */
   return new Proxy(userObj, handler);
 }
+
+//usage
+let userObj = {
+  private: {
+    dob: "12/3/4",
+  },
+  public: {
+    name: "Anas",
+  },
+};
+
+let p = makeTrap(userObj);
+console.log(p.private);
+console.log(p.public);
+/* O/P:
+Access not granted
+{name: 'Anas'}
+*/
 
 /* Qs: https://www.scaler.com/academy/mentee-dashboard/class/132816/assignment/problems/63548/?navref=cl_pb_nv_tb
 

@@ -13,11 +13,11 @@ const promise = fs.promises.readFile("./f1.txt", "utf-8");
 /**
  * State of the promise-> pending
  * */
-console.log(promise);
+console.log(promise); //Promise { <pending> }
 console.log("After");
 
 setTimeout(() => {
   console.log("i after file read");
-  console.log(promise);
-  // promise.then((a) => console.log(a));
+  console.log(promise); //Promise { 'I am f1\n\n' }
+  promise.then((a) => console.log(a)); //I am f1
 }, 2000);

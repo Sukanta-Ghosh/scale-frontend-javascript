@@ -1,16 +1,16 @@
 /* Ex: */
-const cap = {
+const ironman = {
   name: "Steve",
-  sayHi: function(){
+  sayHi: function () {
     console.log("53", this.name);
     const iAmInner = () => {
       console.log("55", this.name);
-    }
+    };
     iAmInner();
-  }
-}
+  },
+};
 
-cap.sayHi();
+ironman.sayHi();
 
 /* O/p:
 53 Steve
@@ -21,25 +21,25 @@ cap.sayHi();
 Function.prototype.myBind = function (obj) {
   obj.fnRef = this;
   return function (...args) {
-    obj.fnRef(...args); 
+    obj.fnRef(...args);
   };
 };
 
 let abc = {
-  name: "Jasbir"
-}
+  name: "Jasbir",
+};
 
 let obj = {
   name: "Steve",
-  sayHi: function(){
+  sayHi: function () {
     console.log(this.name, "say's Hi");
-    function inner(){
+    function inner() {
       console.log("inside inner", this.name);
     }
     let boundThisFN = inner.myBind(abc);
     boundThisFN();
-  }
-}
+  },
+};
 obj.sayHi();
 
 /* O/p:

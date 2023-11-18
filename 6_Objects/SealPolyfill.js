@@ -1,4 +1,7 @@
+//Polyfill of Seal Object property
 if (!Object.prototype.sealPolyfill) {
+  /* Define the sealPolyfill function and add it to the Object.prototype 
+  object to make it accessible on all objects. */
   Object.defineProperty(Object.prototype, "sealPolyfill", {
     value: function () {
       // Check if 'this' is an object
@@ -10,6 +13,8 @@ if (!Object.prototype.sealPolyfill) {
 
       // Iterate over the object's properties
       for (var prop in this) {
+        /* For each property, use Object.defineProperty to define the property with configurable: false. 
+        This makes the property non-configurable, preventing deletion or modification. */
         if (Object.prototype.hasOwnProperty.call(this, prop)) {
           Object.defineProperty(this, prop, {
             configurable: false,
@@ -29,7 +34,7 @@ if (!Object.prototype.sealPolyfill) {
 
 /* 
 Solution Approach:
--------------------t
+-------------------
 1. The goal is to replicate the functionality of the Object.seal method using a polyfill called sealPolyfill.
 
 2. Check if the Object.seal method already exists on the Object.prototype object to avoid overriding it.

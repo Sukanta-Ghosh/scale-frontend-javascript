@@ -5,9 +5,17 @@ function promisify(fn) {
       function cb(result) {
         resolve(result);
       }
-      a;
 
       fn.apply(this, args.concat(cb));
     });
   };
 }
+
+//usage
+function exampleFn(a, b, cb) {
+  cb(a + b);
+}
+
+const promisified = promisify(exampleFn);
+promisified(5, 15).then((res) => console.log("Inside then", res));
+//Output: 20;

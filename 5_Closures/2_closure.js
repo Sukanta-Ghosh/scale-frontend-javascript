@@ -4,6 +4,7 @@
  *  When closure is fromed -> when a inner fn is hoisted, it form closure over outer variable
  * */
 
+//Example 1
 var count = 1000;
 function outerFunction() {
   let count = 0;
@@ -14,17 +15,18 @@ function outerFunction() {
   return innerFunction;
 }
 
-// console.log(outerFunction()());
-// console.log(outerFunction()());
+console.log(outerFunction()()); //1
+console.log(outerFunction()()); //1
 
 var innerFunc = outerFunction();
-console.log(innerFunc);
-console.log(innerFunc());
-console.log(innerFunc());
-console.log(innerFunc());
+console.log(innerFunc); //[Function: innerFunction]
+console.log(innerFunc()); //1
+console.log(innerFunc()); //2
+console.log(innerFunc()); //3
 
+//Example 2
 function innerFunction() {
-  count++;
+  count++; /* ReferenceError: count is not defined at innerFunction */
   return count;
 }
 
@@ -38,6 +40,7 @@ const innerFunc = outerFunction();
 console.log(innerFunc());
 console.log(innerFunc());
 
+//Example 3
 function createCounter(init, delta) {
   function count() {
     // init - 10 , delta - 5 through closure
@@ -72,15 +75,14 @@ function getFirstName(firstName) {
 }
 
 // getLastName closure have firstName = vishal
-
 // greeter fn closure have lastName = singh
 // and firstName = vishal
 
 var fnNameRtrn = getFirstName("vishal");
-console.log(fnNameRtrn); // getLastName
+console.log(fnNameRtrn); // getLastName fn
 
 var lnNameRtrn = fnNameRtrn("Singh");
-console.log(lnNameRtrn); // greeter
+console.log(lnNameRtrn); // greeter fn
 
 lnNameRtrn();
 
@@ -91,7 +93,6 @@ lnNameRtrn();
  * 3. global,window obj
  * 4. lexical scope
  * 5. closure -> till GEC
- *
  * */
 
 /***
@@ -113,14 +114,12 @@ function getFirstName(firstName) {
     };
   };
 }
-//1 -> shorthand
 
+//currying
 getFirstName("Jasbir")("Singh")();
 
+console.log("Task in between");
+
 const getLastName = getFirstName("Jasbir");
-console.log("Task in between");
-
 const greeter = getLastName("Singh");
-console.log("Task in between");
-
 greeter();

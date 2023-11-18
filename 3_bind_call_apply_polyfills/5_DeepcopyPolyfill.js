@@ -11,6 +11,7 @@ let person = {
   friends: ["Steve", ["Nikola"], "Ray", { name: "Jai", lastName: "Roy" }],
 };
 
+//Note: Polyfill of Deepcopy
 function superClone(obj) {
   // create new object
   if (["number", "boolean", "string"].includes(typeof obj)) {
@@ -31,10 +32,11 @@ function superClone(obj) {
       newobj[key] = obj[key];
     }
   }
-  //   return the obj
+  // return the obj
   return newobj;
 }
 
+//usage
 let deeplyClonedObj = superClone(person);
 deeplyClonedObj.lastName = "Odinson";
 deeplyClonedObj.address.street = "south 1st street";

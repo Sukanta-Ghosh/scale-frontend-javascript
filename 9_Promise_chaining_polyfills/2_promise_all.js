@@ -1,77 +1,28 @@
-/* Polyfill of Promise.all */
-Promise.myPromiseALL = function (arrayOFPromises) {
-  return new Promise(function (resolve, reject) {
-    let ansArray = [];
-    let len = arrayOFPromises.length;
-    arrayOFPromises.forEach(async (eachPromise) => {
-      try {
-        let ans = await eachPromise;
-        ansArray.push(ans);
-        len--;
-        if (len === 0) resolve(ansArray);
-      } catch (err) {
-        reject(err);
-      }
-    });
-  });
-};
+const fs = require("fs");
 
-//  when all the promises are resolved
-const p0 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("foo");
-  }, 2000);
-});
-const p1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("foo");
-  }, 3000);
-});
-const p2 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    reject("foo");
-  }, 1000);
-});
+const promise = fs.promises.readFile("f1.txt", "utf-8");
+const promise2 = fs.promises.readFile("f2.txt", "utf-8");
+var promise3 = Promise.reject(4);
 
-Promise.myPromiseALL([p0, p1, p2]).then(console.log, (err) => {
-  console.log(err);
-});
-
-Promise.all([p0, p1, p2]).then(console.log, (err) => {
-  console.log(err);
-});
-
-// promise.all means if all promises within the array passed are resolved,
-// then it will go to then clause, else even if one fails, it will go to catch
-
-//  when either of the promise gets rejected
-
-p0 = Promise.resolve(30);
-p1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    reject("An error occurred!");
-  }, 100);
-});
-p2 = 42;
-
-Promise.all([p0, p1, p2])
-  .then((res) => {
-    console.log("res", res);
+const combinedpromise = Promise.all([promise, promise2, promise3]); // [p1,p2]
+combinedpromise
+  .then(function (resultArr) {
+    console.log(resultArr); // [ans1, ans2]
   })
   .catch((err) => {
-    console.log("err", err);
+    console.log(err, "errr");
   });
-Promise.myPromiseALL([p0, p1, p2]).then(console.log, console.log);
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+// if all the promises are resolved, then only u get the answer in array
+// else even if one promise fails or rejects, u will be gone to the catch clause
 
-/** Creating a Custom promise */
-/** Will be given as recordings */
-
-Promise.all([p0, p1, p2])
-  .then((res) => {
-    console.log("res", res);
+const promise3 = fs.promises.readFile("f1.txt");
+const promise4 = fs.promises.readFile("f11.txt");
+const combinedpromise1 = Promise.all([promise, promise2, promise3, promise4]);
+combinedpromise1
+  .then(function (resultArr) {
+    console.log(resultArr);
   })
   .catch((err) => {
-    console.log("err", err);
+    console.log("rejected promiseall", err);
   });

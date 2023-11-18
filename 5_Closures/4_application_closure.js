@@ -1,20 +1,20 @@
-// infinite curry
-
+// Note: Infinite currying
 function counter(args1) {
   var count = 1;
   if (args1 === 0) return count;
 
   return function inner(args2) {
     count++;
+
     if (args2 === 0) return count;
     else return inner;
   };
 }
 
-console.log(counter()(0)); //--> print -> 2
-console.log(counter()()()()(0)); //--> print -> 5
-console.log(counter(0)); //--> print -> 1
-console.log(counter()()()()()()(0)); //--> print -> 7
+console.log(counter()(0)); //2
+console.log(counter()()()()(0)); //5
+console.log(counter(0)); //1
+console.log(counter()()()()()()(0)); //7
 
 // TODO: HW SUM
 function sum() {}
@@ -25,12 +25,9 @@ console.log(sum(3)(4)(4)()); // ---> 11
 function sumwithExtraArgs() {}
 console.log(sumwithExtraArgs(4, 4)(4, 4, 6, 6)()); // ---> 27
 
-/**
- * Memoization function
- * creating private variables
- * */
-
-/***************Private variables******/
+/**Note:
+ * Creating private variables
+ */
 function createEvenStack() {
   return {
     items: [],
@@ -51,18 +48,17 @@ function createEvenStack() {
 const stack = createEvenStack();
 stack.push(10);
 stack.push(5);
-// stack.pop();
-console.log(stack.items); // => [10]
-// console.log(stack.items);
-// stack.items = [10, 100, 1000]; // prevent this behaviour
-// console.log(stack.items); // => [10]
+stack.pop();
+console.log(stack.items); // [10]
+
+// prevent this behaviour with orivate variable
+// stack.items = [10, 100, 1000];
 
 /**
- * Memoization : sum calculation take a lot of time  with
+ * Note: Memoization : sum calculation take a lot of time  with
  * memoization we can store  result of costly calculations -> useMemo
  * */
 
-// n = 5
 // n = 5
 function calc(n) {
   let sum = 0;
@@ -72,13 +68,13 @@ function calc(n) {
   return sum;
 }
 // 25
-// 25
 
 console.time();
 let res = calc(100);
 console.log("res", res);
 console.timeEnd();
 
+//TODO: Write memorize function
 let efficentCalcFN = memoize(calc);
 console.time();
 console.log(efficentCalcFN(5));

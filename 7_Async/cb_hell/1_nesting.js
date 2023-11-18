@@ -1,9 +1,9 @@
 /****
- *CallBack hell-> inital defintion
- *     1. Nesting of callbacks -> when we have have to do serial tasks using async fns -> Pyramid of DOOM
- *      i want to read all the files serially
- *     2. Inversion of control : we send our callback function to an async fn and
- *  then that async fn has the control to call it(Trust issues)
+ * CallBack hell -> inital defintion
+ * 1. Nesting of callbacks -> when we have have to do serial tasks using async fns ->
+ *    Pyramid of DOM i want to read all the files serially
+ * 2. Inversion of control : we send our callback function to an async fn and
+ *    then that async fn has the control to call it(Trust issues)
  * */
 
 /**
@@ -12,6 +12,7 @@
 
 /****************heart attack code************/
 let fs = require("fs");
+
 console.log("Before");
 fs.readFile("./../f1.txt", function (err, data) {
   // console.log(data);

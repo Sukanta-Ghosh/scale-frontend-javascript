@@ -1,8 +1,8 @@
+//Example 1
 const parent = {
   health: 50,
   abcd: "ds",
   addHealth(n1, n2) {
-    // console.log(this);
     this.health += n1 + n2;
   },
 };
@@ -14,11 +14,14 @@ const child = {
 };
 
 parent.addHealth(10, 20);
-console.log(parent);
+console.log(parent); //{ health: 80, abcd: 'ds', addHealth: [Function: addHealth] }
+
 parent.addHealth.call(child, 20, 30); // params separated by commas
 parent.addHealth.apply(child, [20, 30]); // array as 2nd param
-console.log(child);
 
+console.log(child); //{ health: 170, tests: 4 }
+
+//Example 2
 const logthis = () => {
   console.log(this);
 };
@@ -27,6 +30,7 @@ const myobj = {
 };
 logthis.call(myobj);
 
+//Example 3 - call, apply
 let cap = {
   name: "Steve",
   team: "Cap",
@@ -68,6 +72,7 @@ ironManStolenMem("Natsha", "WarMachine", "doctor strange");
 console.log("-------------------------");
 ironManStolenMem("loki", "thor");
 
+//Example 4 - bind
 const intro = function (...args) {
   console.log(args, "arguments");
   console.log(
@@ -84,6 +89,7 @@ intro.call(obj, "lucknow", "uttar pradesh", "india", "earth");
 const giveIntro = intro.bind(obj, "lucknow", "uttar pradesh");
 giveIntro();
 
+//Example 5 - bind
 const person = { name: "varun" };
 function sayHi(age) {
   return `${this.name} is ${age} years old`;
@@ -95,6 +101,7 @@ console.log(typeof fn);
 console.log(fn());
 console.log(sayHi.bind(person, 24)());
 
+//Example 6 - call
 var status = "online";
 setTimeout(() => {
   const status = "offline";

@@ -28,13 +28,19 @@ Promise.resolve(1)
   })
   .finally((data) => {
     console.log(data);
-    return Promise.resolve(2).then(console.log);
+    return Promise.resolve(2).then((data) =>
+      console.log("Promise inside finally", data)
+    );
   })
-  .then(console.log)
+  .then((data) => console.log(data))
   .catch(console.log);
 
 /* O/P:
-undefined error undefined 2 error2
+undefined
+error
+undefined
+Promise inside finally 2
+error2
 */
 
 /* Ex: QS 3 */
@@ -157,16 +163,16 @@ two
 const createPromise = () => Promise.resolve(1);
 
 function func1() {
-  createPromise().then(console.log);
-  console.log(2);
+  createPromise().then(console.log); //1
+  console.log(2); //2
 }
 
 async function func2() {
   await createPromise();
-  console.log(3);
+  console.log(3); //3
 }
 
-console.log(4);
+console.log(4); //4
 func1();
 func2();
 
@@ -177,7 +183,7 @@ func2();
 3
 */
 
-/* Doubt: Ex: QS 8 */
+/* Ex: QS 8 */
 function resolveAfterNSeconds(n, x) {
   return new Promise((resolve) => {
     setTimeout(() => {

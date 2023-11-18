@@ -10,7 +10,6 @@ function outer() {
 }
 
 var arrFn = outer();
-console.log(arrFn);
 arrFn[0]();
 arrFn[1]();
 arrFn[2]();
@@ -57,10 +56,9 @@ function outer() {
   let arrFn = [];
   let j = 0;
   for (let i = 0; i < 3; i++) {
-    console.log(i);
     arrFn.push(function fn() {
-      console.log(i);
-      console.log(j);
+      console.log("i: ", i);
+      console.log("j: ", j);
     });
   }
   return arrFn;
@@ -71,7 +69,10 @@ arrFn[1]();
 arrFn[2]();
 
 /* o/p:
-0
-1
-2 
+i:  0
+j:  0
+i:  1
+j:  0
+i:  2
+j:  0 
 */

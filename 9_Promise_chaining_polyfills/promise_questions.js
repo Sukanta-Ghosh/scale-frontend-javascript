@@ -7,7 +7,7 @@
 let fs = require("fs");
 
 // then
-var promise = fs.promises.readFile("f11.txt", "utf-8");
+var promise = fs.promises.readFile("f1.txt", "utf-8");
 /*** then is an event listner (handler) for a promise when promise state changes to resolved***/
 
 promise.then(function (data) {
@@ -37,42 +37,47 @@ promise.catch(function (error) {
  * then takes two paramater -> both cb fns
  * first parameter -> is compulsary  and that is invoked when your promise is resolved
  * second parameter -> if present called when promise is rejected
- *
  * **/
 
-promise.then(scb, fcb);
-promise.catch(fcb);
-promise.then(null, fcb);
-promise.finally(finallCB1);
-promise.finally(finallCB2);
-
-let promise = fs.promises.readFile("f11.txt", "utf-8");
-promise.then(scb, fcb);
-promise.then(null, fcb);
-promise.catch(fcb);
-promise.then(
-  function (data) {
-    console.log(data, "then");
-  },
-  function (error) {
-    console.log(error, "catch");
-  }
-);
-
 function scb(data) {
-  console.log("Hi the data is 15 " + data);
+  console.log("The data is from scb " + data);
 }
 function fcb(error) {
-  console.log("inside catch", error.message);
+  console.log("he data is from fcb inside catch", error.message);
 }
 
 function finallCB1() {
-  console.log(" I will be called finally");
+  console.log("I will be called finally finallCB1");
 }
 
 function finallCB2() {
-  console.log(" I will be called finally");
+  console.log("I will be called finally finallCB2");
 }
+
+//reading f1 file
+let promise = fs.promises.readFile("f1.txt", "utf-8");
+
+promise.then(scb, fcb); //The data is from scb I am f1
+promise.catch(fcb); //
+promise.then(null, fcb); //
+promise.finally(finallCB1); //I will be called finally finallCB1
+promise.finally(finallCB2); ///I will be called finally finallCB2
+
+//reading f11 file
+let promise = fs.promises.readFile("f11.txt", "utf-8");
+
+promise.then(scb, fcb); //The data is from fcb inside catch ENOENT: no such file or directory, open 'f11.txt'
+promise.then(null, fcb); //The data is from fcb inside catch ENOENT: no such file or directory, open 'f11.txt'
+promise.catch(fcb); //The data is from fcb inside catch ENOENT: no such file or directory, open 'f11.txt'
+
+promise.then(
+  function (data) {
+    console.log("inside then: ", data);
+  },
+  function (error) {
+    console.log("inside catch: ", error);
+  }
+); //inside catch:  [Error: ENOENT: no such file or directory, open 'f11.txt']
 
 /**
  * promise.catch(fcb) -> promise.then(null, fcb);
@@ -85,22 +90,15 @@ function finallCB2() {
  *
  * */
 
-// Q1.
-// On reject ->
-let promise = fs.promises.readFile("f11.txt", "utf-8");
-promise.then(null, fcb);
-promise.catch(fcb);
-promise.finally(finallCB2);
-promise.finally(finallCB2);
-promise.finally(finallCB2);
-
 /***
  * Promise
  * 1. resolve  -> promise with state resolved whatever you pass into it you that value
  * 2. reject  -> promise with state rejected whatever you pass into it as the value
  * **/
 
+//q1
 const promise = Promise.resolve("1");
+
 promise.then(function (value) {
   console.log("value", value);
 });
@@ -108,20 +106,22 @@ promise.catch(function (err) {
   console.log(err); // will not be called in Promise.resolve scenarios
 });
 
+//q1.1
 var promise1 = Promise.reject("Some error");
+
 promise1.catch(function (err) {
-  console.log("90");
-  console.log("error", err);
+  console.log("90"); //90
+  console.log("error", err); //error Some error
 });
+
 promise1
   .then(function () {
     console.log("90", err);
   })
   .catch(function (err) {
-    console.log("92", err);
+    console.log("92", err); //92 Some error
   });
 
-promise1 = Promise.reject("Some error");
 promise1
   .then(null, function (err) {
     console.log("90", err);
@@ -134,13 +134,14 @@ promise1
   .catch((err) => {
     console.log(err, "errr");
   });
+/* o/p:
+  90 Some error
+  4 errr */
 
-// then , catch , finally
+//  when you have a second then that is chained to the first then -> value promise
+//  received by the second then is return value of the scb / fcb of the first then
 
-// //  when you have a second then that is chained to the first then -> value promise
-// //  received by the second then is return value of the scb / fcb of the first then
-
-/*************************Q2*********************/
+/** q2 */
 let promise = Promise.resolve(10);
 
 promise
@@ -150,7 +151,6 @@ promise
     // return promise<pending> undefined
   })
   .then(function (firstThenVal) {
-    // undefined
     console.log("113", firstThenVal); //113 undefined
     return 100;
   })
@@ -193,7 +193,7 @@ promise
     // return 4 , undefined , Promise.resolve(4) --> go to then
   })
   .catch(function (firstThenVal) {
-    console.log("113", firstThenVal); //113 undefined
+    console.log("113", firstThenVal); //113 1
     return 100;
     // Promise <fulfilled> 100
   })
@@ -319,7 +319,7 @@ promise
 116 100
 113 Error: file not found
 finally
-4 'last catch' 
+4 last catch
 */
 
 /** Finally is always called either after then or catch

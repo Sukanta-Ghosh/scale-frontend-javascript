@@ -120,7 +120,7 @@ console.log(obj2);
 /***
  * Inheritance :
  *  1. unidirectional flow of data
- *        a. if you don not have a prop/method -> you go up the prototype chain
+ *        a. if you do not have a prop/method -> you go up the prototype chain
  *        b. if you have that -> you use your prop/method
  * **/
 

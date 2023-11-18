@@ -17,15 +17,17 @@ function readFile(filename) {
   });
 }
 
+// if my promise is resolved
 promise.then((a) => {
-  console.log(promise);
-  console.log(a, "inside then"); // if my promise is resolved
+  console.log(promise); //Promise { 'I am f1\n\n' }
+  console.log(a, "inside then"); //I am f1 inside then
 });
 
+// if my promise is rejected
 promise.catch((err) => {
-  console.log("inside error");
-  console.log(promise);
-  console.log(err); // if my promise is rejected
+  console.log("inside error"); //
+  console.log(promise); //
+  console.log(err); //
 });
 
 console.log("after");
@@ -43,7 +45,7 @@ promise.then(function (futureValue) {
 //  * catch -> is also an event listener on promises -> fn when promise is rejected(You get an erro)
 //  * */
 promise.catch(function (err) {
-  console.log("err", err);
+  console.log("Error msg: ", err); //Error msg: [Error: ENOENT: no such file or directory, open './f11.txt']
 });
 // /**
 //  * State of the promise-> pending

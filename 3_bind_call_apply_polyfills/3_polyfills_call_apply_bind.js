@@ -18,7 +18,7 @@ parent.addHealth(10, 20);
 parent.addHealth.call(child, 20, 30);
 parent.addHealth.apply(child, [20, 30]);
 
-//where is this call, apply , bind existing ??
+//where is call, apply, bind exist ??
 console.log(Object.prototype);
 console.log(Array.prototype);
 console.dir(Function.prototype);
@@ -81,7 +81,6 @@ parent.addHealth.myApply(child, [20, 30]);
 // console.log(child);
 
 // Note: bind polyfill
-
 Function.prototype.myBind = function (requiredObj, ...args1) {
   const requiredfn = this;
   return function (...args2) {
@@ -89,7 +88,7 @@ Function.prototype.myBind = function (requiredObj, ...args1) {
   };
 };
 
-const r = parent.addHealth.myBind(child, 20);
+const myfn = parent.addHealth.myBind(child, 20);
 myfn(30);
 console.log(myfn, "myfn");
 console.log(child);

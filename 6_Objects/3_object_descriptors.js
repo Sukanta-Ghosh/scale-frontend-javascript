@@ -17,15 +17,23 @@ Object.defineProperty(obj, "test", {
   writable: false,
 });
 
-console.log(obj);
-// console.log(obj.test);
+console.log(obj); //{ name: 'Jasbir', test: 'fail' }
+console.log(obj.test); //fail
 
 for (let key in obj) {
   console.log("in loop", key);
 }
 
+/* O/p:
+in loop name
+in loop test
+*/
+
 obj.test = "pass"; // write the object to some other value
 console.log(obj);
+/* O/p:
+{ name: 'Jasbir', test: 'fail' }
+*/
 
 // prototype
 let arr = [1, 2, 3];
@@ -39,4 +47,4 @@ arr.sayhi();
 arr.sayhi();
 console.log(arr.countOfHi); // 3
 arr.sayhi();
-console.log(arr.countOfHi);
+console.log(arr.countOfHi); //4

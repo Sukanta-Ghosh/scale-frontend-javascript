@@ -1,5 +1,4 @@
 /**
- * Problem : What is problem
  * What are HOF
  *  Different Inbuilt HOF
  * */
@@ -8,8 +7,8 @@
 // A FUNCTION WHICH ACCEPTS ANOTHER FUNCTION AS PARAM OR RETURN A FUNCTION IS A HOF
 
 let arr = [2, 3, 4, 5];
-//  following DRY
-// code to square every element in the array
+
+//Following DRY code to square every element in the array
 for (let i = 0; i < arr.length; i++) {
   arr[i] = arr[i] * arr[i];
 }
@@ -20,6 +19,7 @@ for (let i = 0; i < arr.length; i++) {
 }
 console.log("arr", arr);
 
+//HOF
 function transformer(arr, logic) {
   let newArr = [];
   for (let i = 0; i < arr.length; i++) {
@@ -52,7 +52,7 @@ console.log("cubedArr", cubedArr);
 
 /***
  * HOF -> majorly available on arrays
- *  these fn doesn't change the source array
+ * these fn doesn't change the source array
  * foreach ->
  * Map ->
  * filter ->
@@ -60,8 +60,8 @@ console.log("cubedArr", cubedArr);
  * sort ->
  * */
 
-// forEach traversal -> it is used to travsrese the arr*/
-//let arr = [2, 3, 4, 5];
+// forEach traversal -> it is used to travsrese the arr
+arr = [2, 3, 4, 5];
 
 function printELem(elem) {
   console.log(elem * elem);
@@ -69,7 +69,7 @@ function printELem(elem) {
 arr.forEach(printELem);
 console.log(arr);
 
-//THIS IS A ITERATIONS
+//ITERATIONS of array
 arr.forEach((value, index, array) => {
   console.log(value, index, array);
 });
@@ -82,14 +82,13 @@ Array.prototype.customforeach = function (cb) {
   }
 };
 
+//usage
+console.log("Custom foreach:");
 arr.customforeach((val, index, array) => {
-  console.log(val, "custom foreach");
+  console.log(index, ": ", val);
 });
 
-var arr1 = new Array(2, 3, 4, 5);
-console.log(arr1, ":arr1");
-
-//Topic: Map -> It changes every element according to the cb fn*****/
+//Topic: Map -> It changes every element according to the cb fn
 
 function squarer(elem) {
   return elem * elem;
@@ -123,7 +122,8 @@ Array.prototype.myMap = function (cb) {
   return newArr;
 };
 
-// let arr = [10, 20, 30]
+//usage
+arr = [10, 20, 30];
 squaredArr = arr.myMap((val) => {
   return val * val;
 });
@@ -148,9 +148,9 @@ function isgtr5(elem) {
 }
 
 //odd values
-let oddvaluesArr = elems.filter(isgtr5);
-console.log("oddvaluesArr", oddvaluesArr);
-console.log("elem", elems);
+let oddvaluesArr = elems.filter(isOdd);
+console.log("oddvaluesArr: ", oddvaluesArr); //[ 1, 3, 11, 5 ]
+console.log("grt5valueArr: ", elems.filter(isgtr5)); //[ 11, 34, 12 ]
 
 let newElems = elems.filter((val, ind, arr) => {
   if (val > 5) return true;
@@ -167,6 +167,7 @@ Array.prototype.myFilter = function (cb) {
   return newArr;
 };
 
+//usage
 let newElems1 = elems.myFilter((val, ind, arr) => {
   if (val > 5) return true;
   else return false;
@@ -184,29 +185,25 @@ let valuesArr = newArr1.myFilter((v, i) => {
 });
 console.log(valuesArr);
 
-/********************* Reduce ******************/
-// want to reduce to a single value : number, object, anotherarray
-
-//elems = [1, 2, 3, 4, 5];
-
+/** Topic:  Reduce: want to reduce to a single value : number, object, anotherarray**/
 // 1st run  = acc => 0 , val 1
 // 2nd run = acc => 0+1 , val 2
 // 3rd run = 3, val 3
 // 6, 4
 // 10, 5
 // 15
+elems = [1, 2, 3, 4, 5];
 
 let fAcc1 = elems.reduce((acc, val, index, arr) => {
-  console.log(acc, val, index, arr);
+  console.log(acc); // 0 1 3 6 10
   return acc + val;
 }, 0);
 console.log(fAcc1);
 
 let fAcc2 = elems.reduce((acc, val, index, arr) => {
-  console.log(acc, val, index, arr);
+  console.log(acc); //1 1 2 6 24
   return acc * val;
 }, 1);
-
 console.log(fAcc2);
 
 function sum(acc, elem) {
@@ -216,9 +213,10 @@ function product(acc, elem) {
   return acc * elem;
 }
 
-console.log("sum", sumValues);
+const sumValues = elems.reduce(sum);
+console.log("sum", sumValues); //sum 15
 const prodValues = elems.reduce(product);
-console.log("prod", prodValues);
+console.log("prod", prodValues); //prod 120
 
 /* Example Questions */
 //Ex: reduce the array to space separated string.

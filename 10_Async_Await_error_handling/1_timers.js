@@ -1,9 +1,11 @@
-/*****setTimeout -> clearTimeout****/
+/** Note: setTimeout -> clearTimeout */
 console.log("Before");
+
 function cb() {
-  console.log("Settimouts cb has been called");
+  console.log("SetTimout cb has been called");
 }
 const timerID = setTimeout(cb, 1000);
+
 console.log("AFter");
 
 function canceller() {
@@ -13,7 +15,7 @@ function canceller() {
 setTimeout(canceller, 2000);
 /*************************************/
 
-/************setInterval, clearInterval*********/
+/** Note: setInterval, clearInterval */
 console.log("Before");
 function cb() {
   console.log("Interval called"); // how many times this will be printed
@@ -31,8 +33,21 @@ function cancelInterval() {
   console.log("cancelling the interval timer");
   clearInterval(timerId);
 }
+
 console.time();
 setTimeout(cancelInterval, 5000);
+
 console.log("after");
+
+/* O/P:
+Before
+after
+Interval called
+Interval called
+Interval called
+Interval called
+default: 5.002s
+cancelling the interval timer
+*/
 
 //settimeout - after the given time it will run, it can be more than the time given

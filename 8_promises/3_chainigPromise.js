@@ -70,13 +70,13 @@ console.log("Before");
  * */
 let promise = fs.promises.readFile("./f1.txt");
 promise.then((val) => {
-  console.log("content is " + val);
+  console.log("content is " + val); //content is I am f1
   let promise1 = fs.promises.readFile("./f2.txt");
   promise1.then((val1) => {
-    console.log("content is " + val1);
+    console.log("content is " + val1); //content is I am f2
     let promise2 = fs.promises.readFile("./f3.txt");
     promise2.then((val2) => {
-      console.log("content is " + val2);
+      console.log("content is " + val2); //content is I am f3
     });
   });
 });
@@ -102,5 +102,11 @@ promise
   .catch((err) => {
     console.log(err, "data3");
   });
+
+/* O/p:
+  content is I am f1
+  content is I am f2
+  content is I am f3
+  */
 
 console.log("after");

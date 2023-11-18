@@ -1,3 +1,4 @@
+//Flatten object
 function flattenObject(ob) {
   var toReturn = {};
 
@@ -13,6 +14,34 @@ function flattenObject(ob) {
   }
   return toReturn;
 }
+
+/* Example */
+let person = {
+  firstName: "John",
+  lastName: "Doe",
+  address: {
+    street: "North 1st street",
+    city: "San Jose",
+    state: "CA",
+    country: "USA",
+    postCodes: {
+      firstBlock: 10,
+      secondBlock: 12,
+    },
+  },
+};
+
+//O/P:
+person = {
+  firstName: "John",
+  lastName: "Doe",
+  "address.street": "North 1st street",
+  "address.city": "San Jose",
+  "address.state": "CA",
+  "address.country": "USA",
+  "address.postCodes.firstBlock": 10,
+  "address.postCodes.secondBlock": 12,
+};
 
 /* Qs: https://www.scaler.com/academy/mentee-dashboard/class/132840/assignment/problems/61624/?navref=cl_pb_nv_tb
 To solve the problem of flattening nested objects, you can use a recursive approach. Here’s an outline of the solution approach:

@@ -1,5 +1,5 @@
 //https://www.scaler.com/academy/mentee-dashboard/class/132798/assignment/problems/62137/?navref=cl_pb_nv_tb
-//Doubt:
+// Polyfill of setInterval
 function main(intervalTime, endTime, message, arr) {
   function mySetInterval(callback, time) {
     /* Create an object, interval, with a property working initialized to true. This object will be used to control the execution 
@@ -20,7 +20,7 @@ function main(intervalTime, endTime, message, arr) {
       if (interval.working) setTimeout(setter, time);
     }
 
-    // Call setter once again to start the interval execution.
+    // Call setter first to start the interval execution.
     setTimeout(setter, time);
     return interval;
   }
@@ -50,7 +50,7 @@ of the interval.
 Inside setter, invoke the callback function.
 3. Check the interval.working property. If it is true, schedule the next execution of setter using setTimeout with the specified time 
 interval.
-4. Call setter once again to start the interval execution.
+4. Call setter first to start the interval execution.
 
 After implementing the mySetInterval function, you should use it within the main function to execute the callback function at the 
 specified time interval and stop the execution after the given end time.
