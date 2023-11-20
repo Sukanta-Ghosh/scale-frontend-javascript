@@ -11,3 +11,5 @@ setInterval
 #### Flatten
 
 Array, Object
+
+Infinite currying
